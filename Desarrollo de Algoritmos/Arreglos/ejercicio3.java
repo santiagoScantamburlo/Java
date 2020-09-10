@@ -1,5 +1,6 @@
-import utiles.TecladoIn;
 import java.util.Scanner;
+
+import utiles.TecladoIn;
 
 public class ejercicio3 {
     public static void main(String[] args) {
