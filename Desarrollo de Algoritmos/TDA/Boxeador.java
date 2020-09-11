@@ -1,5 +1,3 @@
-package TDA;
-
 public class Boxeador {
     private String apellido;
     private double estatura;

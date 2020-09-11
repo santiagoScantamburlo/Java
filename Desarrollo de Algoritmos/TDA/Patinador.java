@@ -1,5 +1,3 @@
-package TDA;
-
 public class Patinador {
     private String apellido, nombre, dni;
     private int edad;

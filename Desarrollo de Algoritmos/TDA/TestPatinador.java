@@ -1,5 +1,3 @@
-package TDA;
-
 import java.util.Scanner;
 
 public class TestPatinador {
