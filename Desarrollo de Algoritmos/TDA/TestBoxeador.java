@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import utiles.TecladoIn;
 
 public class TestBoxeador {
     public static void main(String[] args) {
@@ -18,7 +19,7 @@ public class TestBoxeador {
             switch (opcion) {
                 case 1:
                     cargarArreglo(arreglo);
-                    cargado = true;
+                    cargado = true; // Se modifica el valor de verdad ya que se cargo el arreglo
                     break;
                 case 2:
                     mostrarDatosBoxeadores(arreglo, cargado);
@@ -28,12 +29,14 @@ public class TestBoxeador {
                     break;
                 case 0:
                     continuar = false;
+                    break;
                 default:
                     System.out.println("Opcion no valida");
             }
         }
     }
 
+    // Este modulo muestra todas las opciones disponibles para ejecutar
     public static void menu() {
         System.out.println("--------------------------------------------------------------");
         System.out.println("Ingrese la accion a realizar: ");
@@ -44,6 +47,7 @@ public class TestBoxeador {
         System.out.println("--------------------------------------------------------------");
     }
 
+    // Este modulo se encarga de cargar todas las posiciones del arreglo
     public static void cargarArreglo(Boxeador[] a) {
         Scanner pufu = new Scanner(System.in);
         Boxeador b;
@@ -53,7 +57,7 @@ public class TestBoxeador {
 
         for (int i = 0; i < a.length; i++) {
             System.out.println("Ingrese el/los apellido/s del boxeador");
-            apellido = pufu.nextLine();
+            apellido = TecladoIn.readLine();
             System.out.println("Ingrese la estatura del boxeador");
             estatura = pufu.nextDouble();
             System.out.println("Ingrese el peso del boxeador");
@@ -64,6 +68,7 @@ public class TestBoxeador {
         }
     }
 
+    // Este modulo muestra por pantalla los datos de todos los boxeadores cargados
     public static void mostrarDatosBoxeadores(Boxeador[] a, boolean cargado) {
         Scanner pufu = new Scanner(System.in);
         int i = 0;
@@ -71,8 +76,8 @@ public class TestBoxeador {
 
         System.out.println("Ingrese la categoria en la que desea buscar (P, C, S)");
         categoria = pufu.next().charAt(0);
-        while(i < a.length && cargado) {
-            if(a[i].getCategoria() == categoria) {
+        while (i < a.length && cargado) { // Si el arreglo no esta cargado no es recorrido
+            if (a[i].getCategoria() == categoria) { // Verifica si
                 System.out.println(a[i].toString());
                 System.out.println("------------------------------------------------------");
             }
@@ -80,33 +85,27 @@ public class TestBoxeador {
         }
     }
 
+    // Este modulo recorre el arreglo buscando los boxeadores a los que les puede
+    // ganar un competidor ingresado
     public static void buscarVictorias(Boxeador[] a, boolean cargado) {
         Scanner pufu = new Scanner(System.in);
-        Boxeador b;
-        String apellido;
-        double estatura;
-        int peso;
+        int pos = -1;
         char categoria;
 
-        if(cargado) {
-            apellido = "";
-            System.out.println("Ingrese el/los apellido/s del boxeador");
-            apellido = pufu.nextLine();
-            System.out.println("Ingrese la estatura del boxeador");
-            estatura = pufu.nextDouble();
-            System.out.println("Ingrese el peso del boxeador");
-            peso = pufu.nextInt();
-
-            b = new Boxeador(apellido, estatura, peso);
+        if (cargado) { // No inicia la busqueda si el arreglo no esta cargado
+            while (pos < 0 || pos >= a.length) {
+                System.out.println("Ingrese la posicion del boxeador que desea comparar: ");
+                pos = pufu.nextInt();
+            }
+            Boxeador b = a[pos];
             categoria = b.getCategoria();
 
-            System.out.println("A continuacion se muestran los boxeadores contra los que puede ganar");
+            System.out.println("A continuacion se muestran los boxeadores contra los que puede ganar: ");
             for (int i = 0; i < a.length; i++) {
-                if(a[i].getCategoria() == categoria) {
-                    if(b.puedeGanarle(a[i])) {
-                        System.out.println(a[i].toString());
-                        System.out.println("-----------------------------------------------");
-                    }
+                if (a[i].getCategoria() == categoria && b.puedeGanarle(a[i])) { // Verifica si son de la misma categoria
+                    System.out.println(a[i].toString());
+                    System.out.println("-----------------------------------------------");
+
                 }
             }
         }

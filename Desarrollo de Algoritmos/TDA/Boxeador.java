@@ -4,7 +4,7 @@ public class Boxeador {
     private int peso;
     private char categoria;
 
-    //Constructores
+    //CONSTRUCTORES
     public Boxeador() {
         this.apellido = "";
         this.estatura = 0;
@@ -43,7 +43,7 @@ public class Boxeador {
         "Categoria: " + getCategoria();
     }
 
-    //Modificadores
+    //MODIFICADORES
     public void setApellido(String ape) {
         this.apellido = ape;
     }
@@ -57,6 +57,7 @@ public class Boxeador {
         setCategoria(peso);
     }
 
+    //Define la categoria segun el peso del boxeador
     private void setCategoria(int peso) {
         if(peso < 79) {
             this.categoria = 'S';
@@ -67,14 +68,15 @@ public class Boxeador {
         }
     }
 
-    //Propias del Tipo
+    //PROPIAS DEL TIPO
     private double obtenerIMC() {
-        return this.peso / (this.estatura * this.estatura);
+        return this.peso / (this.getEstatura() * this.getEstatura());
     }
 
+    //Verifica si un boxeador ingresado puede ganarle a otro basandose en su IMC
     public boolean puedeGanarle(Boxeador box) {
         boolean retorno = false;
-        if(this.obtenerIMC() > box.obtenerIMC() ) {
+        if(this.obtenerIMC() > box.obtenerIMC() ) { //Si el IMC es mayor entonces puede ganarle
             retorno = true;
         }
         return retorno;
