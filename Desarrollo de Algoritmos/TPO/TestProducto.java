@@ -51,6 +51,7 @@ public class TestProducto {
     }
 
     public static void menu() {
+        System.out.println("------------------------------------------------------------------");
         System.out.println("Ingrese la opcion a realizar");
         System.out.println("1: Cargar arreglo");
         System.out.println("2: Mostrar todos los productos cargados");
@@ -60,6 +61,7 @@ public class TestProducto {
         System.out.println("6: Verificar si existe al menos un producto en oferta");
         System.out.println("7: Listar los productos en oferta");
         System.out.println("0: SALIR");
+        System.out.println("------------------------------------------------------------------");
     }
 
     public static int definirCantProductos(Producto[] a, int i) {
@@ -67,7 +69,7 @@ public class TestProducto {
         int retorno;
 
         do {
-            System.out.println("Ingrese la cantidad de productos a cargar: ");
+            System.out.print("Ingrese la cantidad de productos a cargar: ");
             retorno = pufu.nextInt();
         } while ((retorno + i) > (a.length));
         return retorno;
@@ -81,21 +83,21 @@ public class TestProducto {
         double precio;
         boolean valido = true;
 
-        for (int j = i; j <= i + productos; j++) {
+        for (int j = i; j < i + productos; j++) {
             do {
-                System.out.println("Ingrese un codigo valido: ");
+                System.out.print("Ingrese un codigo valido: ");
                 codigo = pufu.nextInt();
                 if (j != 0) {
                     valido = verificarCodigo(a, codigo, j - 1);
                 }
             } while (!valido);
-            System.out.println("Ingrese el nombre del producto: ");
+            System.out.print("Ingrese el nombre del producto: ");
             nombre = pufu.next();
-            System.out.println("Ingrese la marca del prodcuto: ");
+            System.out.print("Ingrese la marca del prodcuto: ");
             marca = pufu.next();
-            System.out.println("Ingrese el precio del producto: ");
+            System.out.print("Ingrese el precio del producto: ");
             precio = pufu.nextDouble();
-            System.out.println("Ingrese la cantidad en stock del producto: ");
+            System.out.print("Ingrese la cantidad en stock del producto: ");
             cant = pufu.nextInt();
 
             p = new Producto(nombre, marca, codigo, cant, precio);
@@ -119,8 +121,8 @@ public class TestProducto {
 
     public static void mostrarDatos(Producto[] a, int i, boolean cargado) {
         if (cargado) {
-            for (int j = 0; j <= i; j++) {
-                System.out.println(a[i].toString());
+            for (int j = 0; j < i; j++) {
+                System.out.println(a[j].toString());
                 System.out.println("-------------------------------------------");
             }
         } else {
@@ -134,10 +136,10 @@ public class TestProducto {
         boolean encontrado = false, exito;
         Producto p;
         if (cargado) {
-            System.out.println("Ingrese el codigo del producto a vender: ");
+            System.out.print("Ingrese el codigo del producto a vender: ");
             cod = pufu.nextInt();
             p = new Producto(cod);
-            while (!encontrado && j <= i) {
+            while (!encontrado && j < i) {
                 if (a[j].equals(p)) {
                     encontrado = true;
                 } else {
@@ -145,10 +147,11 @@ public class TestProducto {
                 }
             }
             if (encontrado) {
-                System.out.println("Ingrese la cantidad que desea vender: ");
+                System.out.print("Ingrese la cantidad que desea vender: ");
                 cant = pufu.nextInt();
                 exito = a[j].vender(cant);
                 if (exito) {
+                    System.out.println("Venta realizada");
                     System.out.println("Quedan " + a[j].getCantEnStock() + " productos disponibles");
                 } else {
                     System.out.println("¡ERROR! La cantidad ingresada no se encuentra disponible");
@@ -165,9 +168,9 @@ public class TestProducto {
         Scanner pufu = new Scanner(System.in);
         String marca;
         if (cargado) {
-            System.out.println("Ingrese la marca que desea mostrar");
+            System.out.print("Ingrese la marca que desea mostrar");
             marca = pufu.nextLine();
-            for (int j = 0; j <= i; j++) {
+            for (int j = 0; j < i; j++) {
                 if (a[j].getMarca().equals(marca)) {
                     System.out.println(a[j].toString());
                 }
@@ -185,14 +188,14 @@ public class TestProducto {
         int cod;
         if (cargado) {
             System.out.println("A continuacion se muestran los productos que necesitan mas stock:");
-            for (int j = 0; j <= i; j++) {
+            for (int j = 0; j < i; j++) {
                 System.out.println(a[j].hacerPedido());
             }
 
-            System.out.println("Ingrese el codigo del producto a comprar: ");
+            System.out.print("Ingrese el codigo del producto a comprar: ");
             cod = pufu.nextInt();
             p = new Producto(cod);
-            while (!encontrado && k <= i) {
+            while (!encontrado && k < i) {
                 if (a[k].equals(p)) {
                     encontrado = true;
                 } else {
@@ -200,7 +203,7 @@ public class TestProducto {
                 }
             }
             if (encontrado) {
-                System.out.println("Ingrese la cantidad que desea comprar: ");
+                System.out.print("Ingrese la cantidad que desea comprar: ");
                 cant = pufu.nextInt();
                 a[k].actualizarStock(cant);
             }
@@ -213,7 +216,7 @@ public class TestProducto {
         boolean encontrado = false;
         int j = 0;
         if (cargado) {
-            while (!encontrado && j <= i) {
+            while (!encontrado && j < i) {
                 if (a[j].getEnOferta()) {
                     System.out.println(a[j].toString());
                     encontrado = true;
@@ -228,7 +231,7 @@ public class TestProducto {
 
     public static void listarOfertas(Producto[] a, int i, boolean cargado) {
         if (cargado) {
-            for (int j = 0; j <= i; j++) {
+            for (int j = 0; j < i; j++) {
                 if (a[j].getEnOferta()) {
                     System.out.println(a[j].toString());
                 }
