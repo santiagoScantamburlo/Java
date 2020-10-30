@@ -23,11 +23,15 @@ public class ejercicio4 {
     public static boolean verificarDigitos(int n, int i) {
         boolean retorno = false;
 
-        if (n >= 10) {
-            if (n % 10 == i) {
-                retorno = true && verificarDigitos(n / 10, i);
+        if (n >= 10) { // Mientras que el numero sea mayor o igual a 10 verifica desarmandolo
+            if (n % 10 == i) { // Si el ultimo digito es igual, entonces el retorno sera verdadero y llama al
+                               // modulo quitandole el ultimo digito
+                retorno = true && verificarDigitos(n / 10, i); // En caso de que en uno de los llamados no se cumpla la
+                                                               // condicio el retorno sera falso
             }
         } else {
+            // Si el numero es menor a 10, verifica que sean iguales, en caso de serlo
+            // retorna verdadero
             if (n == i) {
                 retorno = true;
             }
