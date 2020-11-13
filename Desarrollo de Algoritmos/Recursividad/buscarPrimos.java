@@ -27,8 +27,12 @@ public class buscarPrimos {
     public static boolean esPrimo(int n, int i) {
         boolean retorno;
         if (i != 1) {
-            if (n == i) {
-                retorno = true;
+            if (n == i / 2) {
+                if (((i / 2) % n) == 0) {
+                    retorno = true;
+                } else {
+                    retorno = false;
+                }
             } else {
                 if (i % n == 0 && n != 1) {
                     retorno = false;
