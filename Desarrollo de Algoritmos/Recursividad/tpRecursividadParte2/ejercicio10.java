@@ -16,6 +16,7 @@ public class ejercicio10 {
 
         matriz = new int[fil][col];
 
+        // Cargo la matriz
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
                 System.out.println("Ingrese un numero: ");
@@ -24,7 +25,9 @@ public class ejercicio10 {
             }
         }
 
-        sumasIguales = recorrerMatriz(matriz, 0);
+        sumasIguales = recorrerMatriz(matriz, 0, 0);
+        // Invoco al modulo que verifica si la suma de todas las columnas
+        // es igual
 
         if (sumasIguales) {
             System.out.println("La suma de cada una de las columnas es igual a las demas");
@@ -33,24 +36,30 @@ public class ejercicio10 {
         }
     }
 
-    public static boolean recorrerMatriz(int[][] matriz, int j) {
+    public static boolean recorrerMatriz(int[][] matriz, int j, int suma) {
         boolean retorno = false;
-        int suma, aux;
+        int aux;
 
         if (j == 0) {
-            retorno = true && recorrerMatriz(matriz, j + 1);
+            // Si se encuentra en la primera columna, el retorno es verdadero y el valor de
+            // verdad del llamado
+            suma = sumaColumnas(matriz, j, 0);
+            retorno = true && recorrerMatriz(matriz, j + 1, suma); // Pasa por parametro el valor de la primera columna
         } else {
             if (j == matriz[0].length - 1) {
-                suma = sumaColumnas(matriz, 0, 0);
+                // Si se encuentra en la ultima columna, hace la suma y verifica la
+                // igualdad con la suma de la primera
                 aux = sumaColumnas(matriz, j, 0);
                 if (aux == suma) {
                     retorno = true;
                 }
             } else {
-                suma = sumaColumnas(matriz, 0, 0);
+                // Si se encuentra en cualquier otra posicion, diferente a las de los casos
+                // anteriores, si la suma de la columna actual es igual a la de la primera, pasa
+                // a la siguiente
                 aux = sumaColumnas(matriz, j, 0);
                 if (aux == suma) {
-                    retorno = true && recorrerMatriz(matriz, j + 1);
+                    retorno = true && recorrerMatriz(matriz, j + 1, suma);
                 }
             }
         }
