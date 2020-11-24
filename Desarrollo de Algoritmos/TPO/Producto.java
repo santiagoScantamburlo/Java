@@ -108,7 +108,7 @@ public class Producto {
     public String toString() {
         return "Codigo: " + getCodigo() + "\n" + "Nombre: " + getNombre() + "\n" + "Marca: " + getMarca() + "\n"
                 + "Precio: $" + getPrecio() + "\n" + "Cant. en stock: " + getCantEnStock() + "\n" + "Oferta: "
-                + getEnOferta();
+                + getEnOferta() + "\n";
     }
 
     public boolean equals(Producto p) {

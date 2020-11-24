@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class buscarPrimos {
+    public static Scanner pufu = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner pufu = new Scanner(System.in);
         int n1, n2;
         do {
             System.out.println("Ingrese el rango dentro del que desea buscar numeros primos");

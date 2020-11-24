@@ -2,8 +2,9 @@ import java.util.Scanner;
 import utiles.TecladoIn;
 
 public class TestBoxeador {
+    public static Scanner pufu = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner pufu = new Scanner(System.in);
         int opcion, cant;
         boolean cargado = false, continuar = true;
         Boxeador[] arreglo;
@@ -49,7 +50,6 @@ public class TestBoxeador {
 
     // Este modulo se encarga de cargar todas las posiciones del arreglo
     public static void cargarArreglo(Boxeador[] a) {
-        Scanner pufu = new Scanner(System.in);
         Boxeador b;
         String apellido;
         double estatura;
@@ -70,7 +70,6 @@ public class TestBoxeador {
 
     // Este modulo muestra por pantalla los datos de todos los boxeadores cargados
     public static void mostrarDatosBoxeadores(Boxeador[] a, boolean cargado) {
-        Scanner pufu = new Scanner(System.in);
         int i = 0;
         char categoria;
 
@@ -88,7 +87,6 @@ public class TestBoxeador {
     // Este modulo recorre el arreglo buscando los boxeadores a los que les puede
     // ganar un competidor ingresado
     public static void buscarVictorias(Boxeador[] a, boolean cargado) {
-        Scanner pufu = new Scanner(System.in);
         int pos = -1;
         char categoria;
 

@@ -13,7 +13,7 @@ public class factorial {
 
     public static int calcularFactorial(int n) {
         int retorno = 1;
-        if(n != 1) {
+        if(n != 0) {
             retorno *= n * calcularFactorial(n - 1);
         }
         return retorno;

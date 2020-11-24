@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 public class TestJugador {
+    public static Scanner pufu = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner pufu = new Scanner(System.in);
         Jugador[] arreglo = new Jugador[3];
         boolean continuar = true, cargado = false;
         int opcion;
-        ;
 
         while (continuar) {
             menu();
@@ -45,7 +45,6 @@ public class TestJugador {
     }
 
     public static void cargarArreglo(Jugador[] a) {
-        Scanner pufu = new Scanner(System.in);
         String nickname;
         Jugador j;
 
@@ -58,7 +57,6 @@ public class TestJugador {
     }
 
     public static void cargarPuntaje(Jugador[] a, boolean cargado) {
-        Scanner pufu = new Scanner(System.in);
         Jugador j;
         String nickname;
         boolean encontrado = false;
@@ -84,7 +82,6 @@ public class TestJugador {
     }
 
     public static void consultarMasAlto(Jugador[] a, boolean cargado) {
-        Scanner pufu = new Scanner(System.in);
         int posicion = -1;
 
         if (cargado) {
