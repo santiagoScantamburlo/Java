@@ -18,7 +18,7 @@ public class TestProducto2 {
             arreglo = new Producto[cantProductos];
             cargarArreglo(arreglo, cantProductos);
         } else {
-            arreglo = new Producto[4];
+            arreglo = new Producto[10];
             arregloPredefinido(arreglo);
         }
 
