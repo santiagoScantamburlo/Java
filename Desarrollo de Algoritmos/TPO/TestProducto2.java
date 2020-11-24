@@ -36,10 +36,12 @@ public class TestProducto2 {
         a[1] = new Producto("queso", "S&P", 65423, 74, 126.87);
         a[2] = new Producto("aceite", "Cocinero", 78956, 41, 156);
         a[3] = new Producto("jabon", "Dove", 38529, 32, 41.54);
-        /*
-         * a[4] = new Producto(""); a[5] = new Producto(); a[6] = new Producto(); a[7] =
-         * new Producto(); a[8] = new Producto(); a[9] = new Producto();
-         */
+        a[4] = new Producto("detergente", "Magistral", 31635, 8, 43.64);
+        a[5] = new Producto("lavandina", "Clorox", 54637, 5, 85.86);
+        a[6] = new Producto("tirabuzones", "Luchetti", 48296, 52, 23.74);
+        a[7] = new Producto("lapicera", "BIC", 48674, 3, 4.52);
+        a[8] = new Producto("te", "La Virginia", 46852, 7, 56.41);
+        a[9] = new Producto("mate cocido", "La Tranquera", 71852, 0, 78.29);
     }
 
     public static void cargarArreglo(Producto[] a, int cantProductos) {
