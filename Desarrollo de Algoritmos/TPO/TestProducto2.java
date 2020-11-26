@@ -52,13 +52,18 @@ public class TestProducto2 {
 
         for (int i = 0; i < cantProductos; i++) {
             System.out.println("Ingrese el nombre del producto: ");
-            nombre = pufu.nextLine();
+            nombre = "";
+            nombre = pufu.next();
+
             System.out.println("Ingrese la marca del producto: ");
-            marca = pufu.nextLine();
+            marca = pufu.next();
+
             System.out.println("Ingrese el codigo del producto: ");
             codigo = pufu.nextInt();
+
             System.out.println("Ingrese el stock del producto: ");
             cantEnStock = pufu.nextInt();
+
             System.out.println("Ingrese el precio del producto: ");
             precio = pufu.nextDouble();
 
@@ -150,6 +155,72 @@ public class TestProducto2 {
     }
 
     public static void ordenarArreglo(Producto[] a) {
+        int opcion;
+
+        do {
+            System.out.println("Ingrese el metodo de ordenamiento que desea utilizar: ");
+            System.out.println("1: Burbuja Mejorado");
+            System.out.println("2: Seleccion");
+            System.out.println("3: Insercion");
+            opcion = pufu.nextInt();
+        } while (opcion < 0 || opcion > 3);
+
+        switch (opcion) {
+            case 1:
+                burbujaMejorado(a);
+                break;
+            case 2:
+                seleccion(a);
+                break;
+            case 3:
+                insercion(a);
+                break;
+        }
+    }
+
+    public static void burbujaMejorado(Producto[] a) {
+        int i, n;
+        boolean sinCambio = false;
+        Producto aux;
+
+        i = 0;
+        n = a.length;
+
+        while (i < n && !sinCambio) {
+            sinCambio = true;
+
+            for (int j = 0; j < n - i - 1; j++) {
+
+                if (a[j].getCodigo() > a[j + 1].getCodigo()) {
+                    aux = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = aux;
+                    sinCambio = false;
+                }
+            }
+            i++;
+        }
+    }
+
+    public static void seleccion(Producto[] a) {
+        int min;
+        Producto aux;
+
+        for (int i = 0; i < a.length - 1; i++) {
+            min = i;
+
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j].getCodigo() < a[min].getCodigo()) {
+                    min = j;
+                }
+            }
+            aux = a[i];
+            a[i] = a[min];
+            a[min] = aux;
+        }
+    }
+
+    public static void insercion(Producto[] a) {
         Producto p;
         int j, aux, largo;
         largo = a.length;
