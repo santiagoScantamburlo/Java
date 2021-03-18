@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class piramide {
+    public static Scanner pufu = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner pufu = new Scanner(System.in);
         int n = 4, i = 1;
 
         mostrarPiramide(n, i);

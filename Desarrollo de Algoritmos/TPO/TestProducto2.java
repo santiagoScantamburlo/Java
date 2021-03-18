@@ -176,6 +176,7 @@ public class TestProducto2 {
                 insercion(a);
                 break;
         }
+        mostrarArreglo(a);
     }
 
     public static void burbujaMejorado(Producto[] a) {
