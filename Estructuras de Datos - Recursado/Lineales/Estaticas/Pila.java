@@ -93,26 +93,4 @@ public class Pila {
         }
         return retorno;
     }
-
-    public boolean esCapicua() {
-        boolean capicua = true;
-        Pila clon1 = this.clone(), clon2 = this.clone(), aux = new Pila();
-        Object elemAux;
-
-        while (!clon2.esVacia()) {
-            elemAux = clon2.obtenerTope();
-            clon2.desapilar();
-            aux.apilar(elemAux);
-        }
-        while (!clon1.esVacia() && capicua) {
-            if (clon1.obtenerTope().equals(aux.obtenerTope())) {
-                capicua = true;
-                clon1.desapilar();
-                aux.desapilar();
-            } else {
-                capicua = false;
-            }
-        }
-        return capicua;
-    }
 }

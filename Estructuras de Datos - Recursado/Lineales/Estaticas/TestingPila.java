@@ -89,8 +89,29 @@ public class TestingPila {
         p3.apilar(1);
 
         System.out.println(p3.toString());
+        System.out.println(esCapicua(p3));
 
-        System.out.println(p3.esCapicua());
+    }
 
+    public static boolean esCapicua(Pila p) {
+        boolean capicua = true;
+        Pila clon1 = p.clone(), clon2 = p.clone(), aux = new Pila();
+        Object elemAux;
+
+        while (!clon2.esVacia()) {
+            elemAux = clon2.obtenerTope();
+            clon2.desapilar();
+            aux.apilar(elemAux);
+        }
+        while (!clon1.esVacia() && capicua) {
+            if (clon1.obtenerTope().equals(aux.obtenerTope())) {
+                capicua = true;
+                clon1.desapilar();
+                aux.desapilar();
+            } else {
+                capicua = false;
+            }
+        }
+        return capicua;
     }
 }
