@@ -24,7 +24,7 @@ public class Pila {
     public boolean desapilar() {
         boolean exito;
 
-        if (esVacia()) {
+        if (this.tope == -1) {
             exito = false;
         } else {
             this.arreglo[this.tope] = null;
@@ -37,7 +37,7 @@ public class Pila {
     public Object obtenerTope() {
         Object retorno;
 
-        if (esVacia()) {
+        if (this.tope == -1) {
             retorno = null;
         } else {
             retorno = this.arreglo[this.tope];
@@ -57,7 +57,7 @@ public class Pila {
     }
 
     public void vaciar() {
-        while (!esVacia()) {
+        while (this.tope != -1) {
             this.arreglo[this.tope] = null;
             this.tope--;
         }
