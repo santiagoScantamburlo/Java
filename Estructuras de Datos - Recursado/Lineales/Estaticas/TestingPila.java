@@ -80,5 +80,17 @@ public class TestingPila {
         System.out.println("Verifica copia modificada, espera 1,2,3,4,5,6: \t\t\t--> " + p2.toString());
         p2.vaciar();
         System.out.println("Vacia copia espera pila vacia: \t\t\t\t\t--> " + p2.toString());
+
+        Pila p3 = new Pila();
+        p3.apilar(1);
+        p3.apilar(2);
+        p3.apilar(3);
+        p3.apilar(4);
+        p3.apilar(1);
+
+        System.out.println(p3.toString());
+
+        System.out.println(p3.esCapicua());
+
     }
 }

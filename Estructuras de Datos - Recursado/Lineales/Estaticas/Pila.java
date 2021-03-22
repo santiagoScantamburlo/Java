@@ -65,11 +65,9 @@ public class Pila {
 
     public Pila clone() {
         Pila clon = new Pila();
-        Object aux;
         clon.tope = this.tope;
         for (int i = 0; i <= this.tope; i++) {
-            aux = this.arreglo[i];
-            clon.arreglo[i] = aux;
+            clon.arreglo[i] = this.arreglo[i];
         }
         return clon;
     }
@@ -94,5 +92,27 @@ public class Pila {
             retorno = "Pila vacia!";
         }
         return retorno;
+    }
+
+    public boolean esCapicua() {
+        boolean capicua = true;
+        Pila clon1 = this.clone(), clon2 = this.clone(), aux = new Pila();
+        Object elemAux;
+
+        while (!clon2.esVacia()) {
+            elemAux = clon2.obtenerTope();
+            clon2.desapilar();
+            aux.apilar(elemAux);
+        }
+        while (!clon1.esVacia() && capicua) {
+            if (clon1.obtenerTope().equals(aux.obtenerTope())) {
+                capicua = true;
+                clon1.desapilar();
+                aux.desapilar();
+            } else {
+                capicua = false;
+            }
+        }
+        return capicua;
     }
 }
