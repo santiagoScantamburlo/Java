@@ -1,9 +1,4 @@
-
-/**
- *
- * @author Catedra Estructuras de Datos
- * 
- */
+import Dinamicas.Pila;
 
 public class TestingPila {
 
@@ -80,38 +75,5 @@ public class TestingPila {
         System.out.println("Verifica copia modificada, espera 1,2,3,4,5,6: \t\t\t--> " + p2.toString());
         p2.vaciar();
         System.out.println("Vacia copia espera pila vacia: \t\t\t\t\t--> " + p2.toString());
-
-        Pila p3 = new Pila();
-        p3.apilar(1);
-        p3.apilar(2);
-        p3.apilar(3);
-        p3.apilar(4);
-        p3.apilar(1);
-
-        System.out.println(p3.toString());
-        System.out.println(esCapicua(p3));
-
-    }
-
-    public static boolean esCapicua(Pila p) {
-        boolean capicua = true;
-        Pila clon1 = p.clone(), clon2 = p.clone(), aux = new Pila();
-        Object elemAux;
-
-        while (!clon2.esVacia()) {
-            elemAux = clon2.obtenerTope();
-            clon2.desapilar();
-            aux.apilar(elemAux);
-        }
-        while (!clon1.esVacia() && capicua) {
-            if (clon1.obtenerTope().equals(aux.obtenerTope())) {
-                capicua = true;
-                clon1.desapilar();
-                aux.desapilar();
-            } else {
-                capicua = false;
-            }
-        }
-        return capicua;
     }
 }
