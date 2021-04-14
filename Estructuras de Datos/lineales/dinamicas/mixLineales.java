@@ -1,10 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package lineales.dinamicas;
-
 /**
  *
  * @author Santi
@@ -14,16 +7,16 @@ public class mixLineales {
         Cola cola = new Cola();
         Lista lista = new Lista();
         Pila pila = new Pila();
-        int[] arreglo = {1, 2, 3, 4, 5};
-        
+        int[] arreglo = { 1, 2, 3, 4, 5 };
+
         for (int i = 0; i < arreglo.length; i++) {
             cola.poner(arreglo[i]);
         }
         System.out.println(cola.toString());
-        
+
         Cola colaClon = cola.clone();
-        
-        while(!colaClon.esVacia()) {
+
+        while (!colaClon.esVacia()) {
             Object aux = colaClon.obtenerFrente();
             lista.insertar(aux, lista.longitud() + 1);
             pila.apilar(aux);
@@ -31,8 +24,8 @@ public class mixLineales {
         }
         System.out.println("Lista: " + lista.toString());
         System.out.println("Pila: " + pila.toString());
-        
-        while(!pila.esVacia()) {
+
+        while (!pila.esVacia()) {
             Object aux = pila.obtenerTope();
             lista.insertar(aux, lista.longitud() + 1);
             pila.desapilar();

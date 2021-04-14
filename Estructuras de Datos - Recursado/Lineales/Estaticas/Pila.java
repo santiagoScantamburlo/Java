@@ -46,14 +46,7 @@ public class Pila {
     }
 
     public boolean esVacia() {
-        boolean vacia;
-
-        if (this.tope == -1) {
-            vacia = true;
-        } else {
-            vacia = false;
-        }
-        return vacia;
+        return this.tope == -1;
     }
 
     public void vaciar() {
@@ -76,7 +69,7 @@ public class Pila {
         String retorno;
         int i = 0;
 
-        if (!esVacia()) {
+        if (this.tope != -1) {
             retorno = "[";
             while (i <= this.tope) {
                 if (i < this.tope) {
