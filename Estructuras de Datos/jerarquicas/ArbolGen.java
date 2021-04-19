@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jerarquicas;
 
 import lineales.dinamicas.*;
 
@@ -230,7 +229,7 @@ public class ArbolGen {
     public Lista listarInorden() {
         Lista lista = new Lista();
         inordenAux(this.raiz, lista);
-        lista = lista.invertir();
+        //lista = lista.invertir();
         return lista;
     }
 
@@ -254,7 +253,7 @@ public class ArbolGen {
     public Lista listarPosorden() {
         Lista lista = new Lista();
         posordenAux(this.raiz, lista);
-        lista = lista.invertir();
+        //lista = lista.invertir();
         return lista;
     }
 
@@ -285,7 +284,7 @@ public class ArbolGen {
                     hijo = hijo.getHermanoDerecho();
                 }
             }
-            lista.invertir();
+            //lista.invertir();
         }
         return lista;
     }

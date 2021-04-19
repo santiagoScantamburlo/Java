@@ -1,3 +1,5 @@
+package lineales.dinamicas;
+
 /**
  *
  * @author Santi

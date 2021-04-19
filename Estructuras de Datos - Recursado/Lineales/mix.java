@@ -1,3 +1,4 @@
+import Dinamicas.*;
 public class mix {
     public static void main(String[] args) {
         Cola q1 = new Cola();
